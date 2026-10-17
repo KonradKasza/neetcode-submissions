@@ -1,0 +1,32 @@
+class Solution {
+public:
+    void sortColors(vector<int>& nums) {
+        int zeros = 0;
+        int ones = 0;
+        int twos = 0;
+
+        for(auto& each : nums){
+            switch(each){
+                case 0:
+                    zeros++;
+                    break;
+                case 1:
+                    ones++;
+                    break;
+                case 2:
+                    twos++;
+                    break;
+            }
+        }
+        for(int i =0; i < zeros; i++){
+            nums[i] = 0;
+        }
+        for(int i =zeros; i < zeros+ones; i++){
+            nums[i] = 1;
+        }
+        for(int i =zeros+ones; i < nums.size(); i++){
+            nums[i] = 2;
+        }
+        
+    }
+};
